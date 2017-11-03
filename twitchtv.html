@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Twitch Tv</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="twitchtv.css">
+
+</head>
+<body onload = "getTwitchtv()">
+	<div class="container-fluid">
+		<h1>Twitch Tv App</h1>
+		<div class ="row">
+			<div class = "col-md-3">
+				<!-- should show a list of all online people when clicked-->
+				<button id="btnOnline" class ="btn btn-primary">
+				 Online</button>
+			</div>
+			<!-- should show a list of all offline people when clicked-->
+			<div class="col-md-3">
+				<button id="btnOffline" class ="btn btn-primary"> Offline</button>
+
+			</div>
+			<!-- should show a list of all people when clicked-->
+			<div class="col-md-3">
+			<button id="btnAll" class ="btn btn-primary">All</button>
+			</div>
+			<div class="col-md-3">
+				<form> <input id ="userInput"type="text" name="search" placeholder="Search.."></form>
+			</div>
+			
+		</div>
+		<div id ="displayBox" class ="well">
+			<ul id ="list">
+				<!--<li id ="t1"></li>
+				<li id = "t2"></li>
+				<li id="t3"></li>
+				<li id ="t4"></li>
+				<li id ="t5"></li>
+				<li id ="t6"></li>
+				<li id ="t7"></li>
+				<li id ="t8"></li>-->
+			</ul>
+		</div>
+	</div>
+	<script src="twitchtv.js"></script>
+	
+
+</body>
+</html>
+
