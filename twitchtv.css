@@ -8,3 +8,19 @@ input[type=text] {
 input[type=text]:focus {
     width: 100%;
 }
+
+
+ul {
+    background: #3399ff;
+    padding: 20px;
+}
+
+a{
+	text-decoration: none;
+}
+
+ul li {
+	list-style-type: none;
+    background: #cce5ff;
+    margin: 5px;
+}
