@@ -2,7 +2,7 @@
 
 
 ul {
-    background-color:rgb(60,20,90);
+    background-color:#4B0082;
     padding: 20px;
 }
 
@@ -20,6 +20,31 @@ p{
     font-size: 20px;
     color: white;
 }
+body{
+    background-color: #b8a9c9;
+}
 .well{
-    background-color: black;
+    background-color: #b8a9c9;
+}
+h1{
+    color: #4B0082;
+}
+.liston{
+    float: right;
+    position: relative;
+    margin-right: 20px;
+}
+.listoff{
+    float: left;
+    position: relative; 
+    margin-left: 20px;
+}
+.icon{
+    margin: auto;
+    width: 10%;
+    padding: 10px;
+}
+.pcol{
+    color: #4B0082;
+    font-size: 30px
 }

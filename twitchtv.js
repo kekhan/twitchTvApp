@@ -7,12 +7,13 @@ var url4active= "";
 var li,ul;
 var online=new Array();
 var offline=new Array();
+
 function main(){
 	getTwitchtvStreams();
 	getnewTwitchtvStreams();
 	getnewStreams();
-}
 
+}
 
 function getTwitchtvStreams(){
 	var myRequest = new XMLHttpRequest();
@@ -26,7 +27,7 @@ function getTwitchtvStreams(){
 					getTwitchtv();
 				}
 				else{
-					//online.push(str);
+					online.push(str);
 					document.getElementById('status3').innerHTML="Online: "+str.stream.channel.status;
 					onlineTwitch(str);
 				}
@@ -49,6 +50,7 @@ function getTwitchtvStreams(){
 				if (myRequest.readyState === XMLHttpRequest.DONE){
 					if (myRequest.status <400){
 						var str = JSON.parse(myRequest.responseText);
+						offline.push(str);
 						nullTwitch(str);
 					}
 				}
@@ -69,12 +71,13 @@ function getnewTwitchtvStreams(){
 			if(myRequest.status< 400){
 				var str = JSON.parse(myRequest.responseText);
 				if(str.stream === null){
+
 					//offline.push(str);
 					document.getElementById('status1').innerHTML="Offline";
 					getnewTwitchtv();
 				}
 				else{
-					//online.push(str);
+					online.push(str);
 					document.getElementById('status1').innerHTML="Online: "+str.stream.channel.status;
 					onlineTwitch(str);
 				}
@@ -98,6 +101,7 @@ function getnewTwitchtvStreams(){
 				if (myRequest.readyState === XMLHttpRequest.DONE){
 					if (myRequest.status <400){
 						var str = JSON.parse(myRequest.responseText);
+						offline.push(str);
 						nullTwitch(str);
 					}
 				}
@@ -121,7 +125,7 @@ function getnewStreams(){
 					getnew();
 				}
 				else{
-					//online.push(str);
+					online.push(str);
 					document.getElementById('status2').innerHTML="Online: "+str.stream.channel.status;
 					onlineTwitch(str);
 				}
@@ -144,6 +148,7 @@ function getnewStreams(){
 				if (myRequest.readyState === XMLHttpRequest.DONE){
 					if (myRequest.status <400){
 						var str = JSON.parse(myRequest.responseText);
+						offline.push(str);
 						nullTwitch(str);
 					}
 				}
@@ -158,7 +163,6 @@ function getnewStreams(){
 	}
 
 	function nullTwitch(data){
-		offline.push(data);
 		var logo = data.logo;
 		var name = data.display_name;
 		var channelUrl= data.url;
@@ -188,6 +192,26 @@ function getnewStreams(){
 		anchorElement.innerHTML="Channel:  "+name;
 		li.appendChild(anchorElement);
 		ul.appendChild(x);ul.appendChild(li);
+		/*document.getElementById('btn').onclick = function off(){
+	    	console.log(offline.length);
+	        console.log(online.length);
+	        document.getElementById('displayBox').innerHTML="";
+
+	        for(var i=0;i<offline.length;i++){
+	        	var x=document.createElement("IMG");
+	        	var li = document.createElement('li');
+	        	x.setAttribute('src',offline[i].logo);
+				x.setAttribute("width", "100");
+	    		x.setAttribute("height", "100");
+	        	var ul=document.getElementById('off'+i);
+	        	anchorElement .setAttribute("href",offline[i].url);
+	        	anchorElement.innerHTML="channel: "+offline[i].name;
+	        	li.appendChild(anchorElement);
+	        	ul.appendChild(x);
+	        	ul.appendChild(li);
+
+	        }
+	    }*/
 	}
 
 function onlineTwitch(data){
@@ -197,14 +221,14 @@ function onlineTwitch(data){
 		var channelUrl= data.stream.channel.url;
 		var name = data.stream.channel.name;
 		if (name == "freecodecamp") {
-			ul = document.getElementById('list1');
+			ul = document.getElementById('li1');
 		}
 		else if(name == "lirik"){
-			ul = document.getElementById('list2');
+			ul = document.getElementById('li2');
 
 		}
 		else if(name === "medrybw"){
-			ul=document.getElementById('list3');
+			ul=document.getElementById('li3');
 		}
 		else{
 			console.log("AWWW,Some is Wrong Again!!!")
@@ -223,8 +247,11 @@ function onlineTwitch(data){
 		li.appendChild(anchorElement);
 		ul.appendChild(x);ul.appendChild(li);
 	}
-	console.log(online);
-	console.log(offline);
+/*document.getElementById('btn2').onclick = function all(){
+	main();
+}*/
+	
+
 
 
 
