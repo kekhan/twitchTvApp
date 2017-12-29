@@ -25,19 +25,22 @@ body{
 }
 .well{
     background-color: #b8a9c9;
+    display: inline-block;
 }
 h1{
     color: #4B0082;
 }
 .liston{
+    display:block;
     float: right;
-    position: relative;
-    margin-right: 20px;
+    /*position: relative;*/
+    margin-right: 25%;
 }
 .listoff{
+    display:block;
     float: left;
-    position: relative; 
-    margin-left: 20px;
+    /*position: relative;*/ 
+    margin-left: 25%;
 }
 .icon{
     margin: auto;
